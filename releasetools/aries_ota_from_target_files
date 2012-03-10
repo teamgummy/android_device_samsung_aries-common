@@ -85,11 +85,11 @@ def WriteFullOTAPackage(input_zip, output_zip):
   if OPTIONS.wipe_user_data:
     script.FormatPartition("/data")
     script.Print(" ")
-script.Print("        ___  __  __  __  __  __  __  _  _  ")	
-script.Print("       / __)(  )(  )(  \/  )(  \/  )( \/ ) ")
-script.Print("      ( (_-. )(__)(  )    (  )    (  \  /  ")
-script.Print("       \___/(______)(_/\/\_)(_/\/\_) (__)  ")
-script.Print(" ")
+  script.Print("        ___  __  __  __  __  __  __  _  _  ")	
+  script.Print("       / __)(  )(  )(  \/  )(  \/  )( \/ ) ")
+  script.Print("      ( (_-. )(__)(  )    (  )    (  \  /  ")
+  script.Print("       \___/(______)(_/\/\_)(_/\/\_) (__)  ")
+  script.Print(" ")
 
   script.FormatPartition("/system")
   script.Mount("/system")
