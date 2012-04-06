@@ -115,6 +115,13 @@ def WriteFullOTAPackage(input_zip, output_zip):
   script.SetPermissions("/data/cron", 0, 0, 0755)
   script.SetPermissions("/data/cron/root", 0, 0, 0644)
 
+  if OPTIONS.backuptool:
+    script.ShowProgress(0.2, 10)
+    script.RunBackup("restore")
+
+  if OPTIONS.modelidcfg:
+    script.RunConfig("")
+
   CopyBootFiles(input_zip, output_zip)
   CopyBMLoverMTD(output_zip)
 
