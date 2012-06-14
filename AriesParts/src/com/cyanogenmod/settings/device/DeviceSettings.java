@@ -10,11 +10,14 @@ public class DeviceSettings extends PreferenceActivity  {
     public static final String KEY_MDNIE = "mdnie";
     public static final String KEY_BACKLIGHT_TIMEOUT = "backlight_timeout";
     public static final String KEY_HSPA = "hspa";
+    public static final String KEY_VOLUME_BOOST = "volume_boost";
+    public static final String KEY_VOLUME_CATEGORY = "category_volume_boost";
 
     private ColorTuningPreference mColorTuning;
     private ListPreference mMdnie;
     private ListPreference mBacklightTimeout;
     private ListPreference mHspa;
+    private VolumeBoostPreference mVolumeBoost;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,11 @@ public class DeviceSettings extends PreferenceActivity  {
         mHspa = (ListPreference) findPreference(KEY_HSPA);
         mHspa.setEnabled(Hspa.isSupported());
         mHspa.setOnPreferenceChangeListener(new Hspa(this));
+        mVolumeBoost = (VolumeBoostPreference) findPreference(KEY_VOLUME_BOOST);
+        if (!VolumeBoostPreference.isSupported()) {
+            PreferenceCategory category = (PreferenceCategory) getPreferenceScreen().findPreference(KEY_VOLUME_CATEGORY);
+            category.removePreference(mVolumeBoost);
+            getPreferenceScreen().removePreference(category);
     }
 
 }
