@@ -3,6 +3,7 @@ package com.cyanogenmod.settings.device;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
 
 public class DeviceSettings extends PreferenceActivity  {
 
@@ -43,6 +44,7 @@ public class DeviceSettings extends PreferenceActivity  {
             PreferenceCategory category = (PreferenceCategory) getPreferenceScreen().findPreference(KEY_VOLUME_CATEGORY);
             category.removePreference(mVolumeBoost);
             getPreferenceScreen().removePreference(category);
+        }
     }
 
 }
